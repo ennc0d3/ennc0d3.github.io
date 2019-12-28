@@ -1,5 +1,5 @@
 theme: jekyll-theme-cayman
 name: ennc0d3, code @ (k)night
-markdown: kramdownh
+markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
 
