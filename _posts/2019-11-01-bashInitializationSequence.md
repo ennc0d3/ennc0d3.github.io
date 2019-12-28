@@ -7,7 +7,8 @@ This entry is my future reference about the topic.
 
 ## Bash shell invocation modes
 Bash shell can be invoked either as interactive login shell, interactive shell and non-interactive shell
-``` bash [options]
+```bash
+bash [options]
 ```
 ### Interactive login shell
     When we are loggin in, the startup files used in this sequence are /etc/profile and ~/bashrc_profile, ~/.bash_login and ~/.profile in order 
@@ -25,14 +26,14 @@ Bash shell can be invoked either as interactive login shell, interactive shell a
  This could be inhibited by using --norc option. Also we can use --rcfile option to source from an different file rather than using ~/.bashrc
 
  Typically,  we can use
-  ```
+  ```bash
   if [ -f ~/.bashrc ]; then . ~/.bashrc fi
   ```
 
 ### Non-interactive shell
  The shell is invoked when a shell script is running. In this mode, it’s processing a script (set of shell or generic system commands/functions) and doesn’t require user input between commands unless otherwise. It operates using the environment inherited from the parent shell.
 
- ```
+```bash
 if [ -n "$BASH_ENV" ]; then . "$BASH_ENV"; fi
 ```
 
@@ -51,29 +52,29 @@ Bash runs the startup login sequence in case of sh mode and follows the posix st
 #
 ## Example
 When is ~/.bashrc executed?
-```
+```bash
   bash; bash
 ```
 
 When not executed?
-```
+```bash
     bash -c 'echo hi'; bash -c 'echo hi'
 ```
 
 When is ~/.bashrc_profile and ~/.profile executed?
     At login
-```
+```bash
     bash --login
-```
+```bash
     Inhibit profile
-```
+```bash
     bash --login --no-profile
 ```
 
 Does shell invoke ~/.bashrc while running a login shell?
     Invoked interactive non-login
     It depends, if the ~/.bashrc_profile has the following line
-    ```
+    ```bash
     if [ -f ~/.bashrc ]; then . ~/.bashrc fi
     ```
 
