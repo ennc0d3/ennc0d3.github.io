@@ -7,9 +7,11 @@ This entry is my future reference about the topic.
 
 ## Bash shell invocation modes
 Bash shell can be invoked either as interactive login shell, interactive shell and non-interactive shell
+
 ```bash
 bash [options]
 ```
+
 ### Interactive login shell
 When we are loggin in, the startup files used in this sequence are /etc/profile and ~/bashrc_profile, ~/.bash_login and ~/.profile in order, offcourse this can be inhibited by usage --noprofile
 
@@ -25,15 +27,15 @@ When the shell is started in this state, it copies the environment of the parent
 This could be inhibited by using --norc option. Also we can use --rcfile option to source from an different file rather than using ~/.bashrc
 
 Typically,  we can use
- ```bash
+```bash
   if [ -f ~/.bashrc ]; then . ~/.bashrc fi
- ```
+```
 
 ### Non-interactive shell
 The shell is invoked when a shell script is running. In this mode, it’s processing a script (set of shell or generic system commands/functions) and doesn’t require user input between commands unless otherwise. It operates using the environment inherited from the parent shell.
 
 ```bash
-if [ -n "$BASH_ENV" ]; then . "$BASH_ENV"; fi
+ if [ -n "$BASH_ENV" ]; then . "$BASH_ENV"; fi
 ```
 
 ### Invoke as sh/posix
@@ -47,6 +49,7 @@ Bash runs the startup login sequence in case of sh mode and follows the posix st
 
 ### Login startup files
 ### Interactive startup files
+
 ## Example(s)
 When is ~/.bashrc executed?
 ```bash
@@ -55,30 +58,32 @@ When is ~/.bashrc executed?
 
 When not executed?
 ```bash
-    bash -c 'echo hi'; bash -c 'echo hi'
+ bash -c 'echo hi'; bash -c 'echo hi'
 ```
 
 When is ~/.bashrc_profile and ~/.profile executed?
 At login
 ```bash
-    bash --login
+ bash --login
 ```
 Inhibit profile
 ```bash
-    bash --login --no-profile
+ bash --login --no-profile
 ```
 
 Does shell invoke ~/.bashrc while running a login shell?
 
 Invoked interactive non-login
 It depends, if the ~/.bashrc_profile has the following line and also on the BASH_ENV variable setting
-    ```bash
-    if [ -f ~/.bashrc ]; then . ~/.bashrc fi
-    ```
+```bash
+ if [ -f ~/.bashrc ]; then . ~/.bashrc fi
+```
 ## Tricks
-set -a
-source ./env
-set +a
+```bash
+ set -a
+ source ./env
+ set +a
+```
 
 ## References
 [Bash manual Startup Files ](https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html)
