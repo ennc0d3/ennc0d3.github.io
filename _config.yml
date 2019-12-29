@@ -10,8 +10,7 @@ markdown: kramdown
 kramdown:
   math_engine: mathjax
   syntax_highlighter: rouge
-highlighter: rouge
-  input: GFM
+
 safe: true
 incremental: false
 gist:
