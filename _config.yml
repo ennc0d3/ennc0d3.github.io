@@ -1,17 +1,13 @@
 theme: jekyll-theme-cayman
 name: ennc0d3, code @ (k)night
-markdown: kramdown
 
 permalink: /blog/:year/:month/:day/:title
 twitter_username: ennmail
 github_username: ennc0d3
-# Conversion
-markdown: kramdown
-highlighter: rouge
-lsi: false
-incremental: false
+
 
 # Markdown Processing
+markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
@@ -20,10 +16,16 @@ kramdown:
   entity_output: as_char
   toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
-  enable_coderay: false
+  enable_coderay: true
   
-  
- # Outputting
-permalink: /:categories/:title/
-
+markdown:     kramdown
+redcarpet:
+  extensions: ['smart', 'tables', 'with_toc_data']
+permalink:    pretty
+paginate:     4
+sass:
+  style: compressed
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
 
