@@ -5,7 +5,6 @@ permalink: /blog/:year/:month/:day/:title
 twitter_username: ennmail
 github_username: ennc0d3
 
-
 # Markdown Processing
 markdown: kramdown
 kramdown:
