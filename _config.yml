@@ -8,23 +8,11 @@ github_username: ennc0d3
 # Markdown Processing
 markdown: kramdown
 kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
+highlighter: rouge
   input: GFM
-  hard_wrap: false
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
-  enable_coderay: true
-  
-markdown:     kramdown
-redcarpet:
-  extensions: ['smart', 'tables', 'with_toc_data']
-permalink:    pretty
-paginate:     4
-sass:
-  style: compressed
-plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-
+safe: true
+incremental: false
+gist:
+  noscript: false
