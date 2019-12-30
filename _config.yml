@@ -1,6 +1,8 @@
-theme: jekyll-theme-cayman
 name: ennc0d3, code @ (k)night
 title: Welcome to the ennc0d3's homepage!
+description: A blog, a scratch pad, whatever else
+
+theme: jekyll-theme-cayman
 
 permalink: /blog/:year/:month/:day/:title
 twitter_username: ennmail
