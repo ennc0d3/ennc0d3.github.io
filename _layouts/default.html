@@ -33,7 +33,11 @@
         <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
         <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
       {% endif %}
-	    	<nav>
+
+    </header>
+
+    <main id="content" class="main-content" role="main">
+	    	    	<nav>
 	    		<ul>
 	        		<li><a href="/">Home</a></li>
 		        	<li><a href="/about">About</a></li>
@@ -41,11 +45,9 @@
 	        		<li><a href="/blog">Blog</a></li>
 	    		</ul>
 	</nav>
-    </header>
-
-    <main id="content" class="main-content" role="main">
+	    <div>
       {{ content }}
-
+	    </div>
       <footer class="site-footer">
         {% if site.github.is_project_page %}
           <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
