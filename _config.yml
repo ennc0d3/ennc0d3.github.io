@@ -16,7 +16,7 @@ github:
   owner_name: Nagarajan Ganesan
   owner_url: github.com/ennc0d3
 
-show_downloads: false
+show_downloads: true
 google_analytics:
 
 # Markdown Processing
