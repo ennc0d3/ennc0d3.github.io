@@ -9,7 +9,7 @@ github_username: ennc0d3
 owner_email: ennc0d3@gmail.com
 
 github:
-  is_project_page: true
+  is_project_page: false
   repository_url: github.com/ennc0d3/ennc0d3.github.io
   repository_name: ennc0d3
   owner_name: Nagarajan Ganesan
