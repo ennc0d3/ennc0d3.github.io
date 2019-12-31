@@ -1,12 +1,23 @@
 name: ennc0d3, code @ (k)night
 title: Welcome to the ennc0d3's homepage!
-description: A blog, a scratch pad, whatever else
+description: A blog, a scratch pad, and what not!
 
 theme: jekyll-theme-cayman
 
 permalink: /blog/:year/:month/:day/:title
 twitter_username: ennmail
 github_username: ennc0d3
+owner_email: ennc0d3@gmail.com
+
+github:
+  is_project_page: true
+  repository_url: github.com/ennc0d3/ennc0d3.github.io
+  repository_name: ennc0d3
+  owner_name: Nagarajan Ganesan
+  owner_url: github.com/ennc0d3
+
+show_downloads: false
+google_analytics:
 
 # Markdown Processing
 markdown: kramdown
