@@ -27,6 +27,7 @@ navbar-links:
     - Learn markdown: "http://www.markdowntutorial.com/"
     - Datastructure book: https://donsheehy.github.io/datastructures/fullbook.html
     - Datastructure course: https://stepik.org/course/579/syllabus
+    - Algorithms in python: https://runestone.academy/runestone/books/published/pythonds/index.html
   Blog: "/blog"
   Author's home: "http://ennc0d3.github.io"
 
