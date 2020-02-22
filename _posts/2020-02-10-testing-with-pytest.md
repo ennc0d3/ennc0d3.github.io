@@ -1,20 +1,20 @@
 # Testing using pytest
-The pytest framework seems to simplify testing in python in terms of reducing
-the boiler-plate code, simpler assertion, enhanced reporting, extensiblity via
-pytest plugins, easier ways change / enrich behaviour by implementing the pytest
-hooks, wider range of plugins.
+The pytest framework seems to simplify testing in python, by providing
+simpler assertion, enhanced reports, extenstion via pytest plugins, easier ways 
+to change and enrich behaviour by implementing the pytest hooks, together with 
+wide range of community plugins.
 
 
 ## Why did I chose pytest?
 
-Our testframework was based on `unittest` and it was reasonably well written with
-good number of testcases used primarily for function testing our application and
-we were creating/porting the services to be cloud-native and we had to extend out
-testcases together with the framework.
+Our testframework was based on `unittest` and was reasonably well written with
+good number of testcases, primarily for function test of our application and But
+we were creating/porting the services to be cloud-native which meant we need to
+extend our test scope, together with he framework.
 
-As usual there were some extentions required to the framework and it wa becoming
-complex, inflexible and maintenance issues. We were thinking of migrating to any
-other framework and we wanted some functionality in our framework, like the following
+As we were extending the framwework, we were constantly facing issues with the current
+framework getting complex, inflexible and maintainability isssues. That was the time,
+we wanted to find a more suitable framework and we began with the following requirements,
 
  * Enhanced reporting
  * Enhanced test discovery and test selection
