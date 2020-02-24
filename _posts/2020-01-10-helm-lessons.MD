@@ -3,6 +3,11 @@ Helm being the defacto package manager for kubernetes, you like it not or you wi
 
 ## Issues
 
+### helm install (Error: grpc: received message larger than max (31775705 vs. 20971520)?
+The helm install command failed with the above message, but could not figure out easily. My chart are using `Files` and
+it seems some garbage file was under the chart folder which is obviously bigger than limit. Removing the file made it to
+work.
+
 ### helm --debug/dry-run ?
 Noticed the output that debug prints when running with dry-run is not the same as what happens with the real run. I don't remember exactly and don't have an example now. But watch out
 
