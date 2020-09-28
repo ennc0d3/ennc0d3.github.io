@@ -60,3 +60,28 @@ The following are list of issues that i encountoured, lately I after an upgrade 
   It was complaining about `cannot install into empty namespace`, I couldn't guess the issue, installing into empty namespace but should this be kube-system and also a read a note somewhere saying **TILLER_NAMESPACE** and it seems to be the problem for my case. I had an empty value for this parameter and that was causing the issue.
 
   Could have been obvious if it had siad the tiller namespace is not valid?
+
+### helm and jfrog helm-local repositories
+I was very confused when the *helm dep up* command was complaining that it was
+not able to download charts listed in the requirements using the "local" scheme.
+I doubled checked and no wasn't using "file://" scheme and also cleaned up the 
+repository caches.
+```
+helm env
+```
+Still, I saw the same error, where as the scheme "local" comes.
+
+I tried searching for the chart in the repo, i could find it but helm dep kept failing.
+
+I checked the helm code and didn't see any obvious redirect or change in the scheme, as am sure
+that i had the repository added in my local repository list.
+
+I ran a `helm fetch` for that chart, and now i got the same error "local" scheme not supported.
+But where is this is coming from, tell me "HELLm".
+
+Started googling around, then got a hint about JFrog artifactory behaviour, for local repositories.
+The redirects are not supported for local repository.
+[https://www.jfrog.com/confluence/display/JFROG/Helm+Chart+Repositories](JFrog Helm repository)
+
+So this could be my case. I shouldn't be using the local artifactory repos and then changed
+the repo to using my local charts.
