@@ -11,11 +11,11 @@ But, then installing could have been a nightmare, lucikly it was using
 Operators, back then I didn't know what they are but apparantely it was 
 convienent and easier to get the application up quickly without browsing
 through the documentation. Here, am talking about and internal version of
-this Db not the one from the public, may the public one also has this approach.
+this Db not the one from the public, may the public one also uses this approach.
 
 But at that time, i was curious and browsed few articles on
 *Kubernetes Operators*, honestly much of that didn't make much sense to simple
-brain. I was thinking why can't Helm solve them, why not their hooks, the
+brain. I was thinking why can't Helm solve them, why not the hooks, the
 initContainers, the batch jobs etc.
 
 
@@ -25,7 +25,7 @@ Not really i think now, Helm allows as to package dependencies but setting up
 dependency order or prerequisites sort of things doesn't work very well. Typically,
 an application's installation instructions comes with a *prerequisite* section 
 which make us think, oh no this is not installable. How the hell i will address
-these prerequisites quickly in my local environement? For example, we might have
+these prerequisites quickly in my local environment? For example, we might have
 seen installation instructions stating that this and that has to be installed, 
 this resource must be created, the other service must be in ready state, db must 
 be initialized,and blah blah.
@@ -41,13 +41,13 @@ And developers would not typically provide very good documentation there are alw
 hidden assumption which turns out to be long debug sessions and endless reading
 of documentation.
 
-Now i think of automation, why not use something configuration
-or provisioning tool to handle those sort of things, Ansible, Chef, etc.
+Now i think of automation, why not use some configuration or
+provisioning tool to handle those sort of things,like Ansible, Chef, etc.
 
-## And oh maybe *Operators* can be the ones
+## And oh may be *Operators* could be the thing
 Re-Reading the Kubernetes Operators documentation made me
-realize that it -solves- addresses some of the shortcomings of Helm,
-automation tools etc, by usign the K8s core concepts, Controller & Reconciler
+realize that it ~~solves~~ addresses some of the shortcomings of Helm,
+automation tools, by using the K8s core concepts, Controller & Reconciler
 (the control-loop).
 
 So, if we can code the adminstration logic using the Kubernetes concepts we
@@ -79,7 +79,6 @@ apiVersion: ennc0d3.databases/v1
 kind: SimpleCacheDb
 spec:
   size: 3
-
 ```
 
 Now the operator is expected to handle the details, it might install PVC,
@@ -99,7 +98,7 @@ model and understand the API objects, Watch concepts.
 ### (Not-So) Easy Piecey 
 It is not straightforward given that is not easy to navigate through the k8s
 documentation but we are not the first, this has been here for a while and there
-are good blogs on how to do it *Copy*. 
+are good blogs on how to do it *Copy with Pride*. 
 
 Using the Operator framework can make easy, I haven't done it, but if i find time
 to do something i will write an update here for my future self.
