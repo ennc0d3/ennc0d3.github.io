@@ -1,4 +1,5 @@
 # Bash initialization sequence
+ 
 Recently, while creating a docker image based on theia(cloud-IDE) for golang, i
 had few hiccups with the setup of user environment. The problems that i faced
 are due to not having a complete understanding of the bash initialization
@@ -11,23 +12,28 @@ fix my docker image.
 This entry is my future reference on the topic.
 
 ## Bash shell invocation modes
+  
 Bash shell can be invoked either as interactive login shell, interactive shell
 and non-interactive shell
 
 ```bash bash [options]```
 
 ### Interactive login shell
+  
 When we are logging in, the startup files used in this sequence in order are,
+  
 * /etc/profile
 * ~/bashrc_profile
 * ~/.bash_login
 * ~/.profile
+
 of course this can be inhibited by usage ```--noprofile```
 
 When an interactive login shell executes bash execute
-```~/.bashrc_logout``` (if exists)
+```~/.bashrc_logout```
 
 ### Interactive non-login shell
+  
 The shell is started at the command-line using a shell program for example
 ```/bin/bash``` or ```/bin/zsh```. It can as well be started by running
 ```/bin/su``` command.
@@ -51,6 +57,7 @@ Typically, We can use,
  ```
 
 ### Non-interactive shell
+  
 The shell is invoked when a shell script is running. In this mode, it’s
 processing a script (set of shell or generic system commands/functions) and
 doesn’t require user input between commands unless otherwise. It operates using
@@ -61,20 +68,24 @@ if [ -n "$BASH_ENV" ]; then . "$BASH_ENV"; fi
 ```
 
 ### Invoke as sh/posix
+
 Bash runs the startup login sequence in case of sh mode and follows the posix
 standard for startup files for posix mode
 
 ## Startup files ## System wide
+
 These applies to all users and usually are _/etc/profiles_, _/etc/bashrc_
 
 ### User specific
+
 Customized for the user, usually ```~/.bashrc_profile```, ```.bashrc,```,
 ```.bashrc_login```
 
 ### Login startup files ## Interactive startup files
 
 ## Example(s)
-When is ```~/.bashrc``` executed? 
+
+When is ```~/.bashrc``` executed?
 
 ```bash
 bash; bash
@@ -111,12 +122,13 @@ following line and also on the **BASH_ENV** variable setting,
 
 ## Tricks
 
-To export variables, use ```set -a ```
+To export variables, use ```set -a```
 
 ```bash
 set -a source ./env set +a
  ```
 
 ## References
+  
 [Bash manual startup files
 ](https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html)
