@@ -18,7 +18,10 @@ and non-interactive shell
 
 ### Interactive login shell
 When we are logging in, the startup files used in this sequence in order are,
-* /etc/profile ~/bashrc_profile ~/.bash_login ~/.profile
+* /etc/profile
+* ~/bashrc_profile
+* ~/.bash_login
+* ~/.profile
 of course this can be inhibited by usage ```--noprofile```
 
 When an interactive login shell executes bash execute
@@ -26,7 +29,7 @@ When an interactive login shell executes bash execute
 
 ### Interactive non-login shell
 The shell is started at the command-line using a shell program for example
-```/bin/bash``` or ```/bin/zsh``` It can as well be started by running
+```/bin/bash``` or ```/bin/zsh```. It can as well be started by running
 ```/bin/su``` command.
 
 Additionally, an interactive non-login shell can as well be invoked with a
@@ -72,11 +75,13 @@ Customized for the user, usually ```~/.bashrc_profile```, ```.bashrc,```,
 
 ## Example(s)
 When is ```~/.bashrc``` executed? 
+
 ```bash
 bash; bash
 ```
 
 When not executed?
+
  ```bash
  bash -c 'echo hi'; bash -c 'echo hi'
  ```
@@ -105,7 +110,12 @@ following line and also on the **BASH_ENV** variable setting,
  ```
 
 ## Tricks
-```bash set -a source ./env set +a ```
+
+To export variables, use ```set -a ```
+
+```bash
+set -a source ./env set +a
+ ```
 
 ## References
 [Bash manual startup files
