@@ -78,3 +78,80 @@ And now it works,
 kubectl get nodes
 ```
 
+### Acessing services running on the Kind cluster
+
+#### How do I access services/pod that are running in the Kind cluster?
+
+I think we have these options,
+* Port forwarding
+* Adding a external loadbalancer like metallb
+* Add routing
+
+I will go with that last option, i.e adding route to the kind cluster via the docker bridge as it is 
+convienent and easier of the other three options.
+
+The source for this the following [Accessing services from host when using kind](https://dustinspecker.com/posts/resolving-kubernetes-services-from-host-when-using-kind/)
+
+Get the IP address ranges allocated for the PODs in the cluster,
+
+```
+kubectl get node kind-control-plane \
+  --output jsonpath='{@.spec.podCIDR}'
+```
+
+Get the control plane IP
+
+```
+docker container inspect kind-control-plane \
+  --format '{{ .NetworkSettings.Networks.kind.IPAddress }}'
+```
+
+And finally, Add route,
+
+```
+sudo ip route add $(kubectl get node kind-control-plane \
+  --output jsonpath='{@.spec.podCIDR}') via \
+  $(docker container inspect kind-control-plane \
+   --format '{{ .NetworkSettings.Networks.kind.IPAddress }}')
+```
+
+But this only lets you access PODs via their IPs, What about accessing Services which is usually the
+case so we do the same thing except we use the "Services address range" instead
+
+```
+echo "sudo ip route add $(kubectl cluster-info dump |\
+  sed -ne 's/.*.*--service-cluster-ip-range=\(.*\)".*/\1/p' | sed  -ne '$p' ) via \
+  $(docker container inspect kind-control-plane \
+   --format '{{ .NetworkSettings.Networks.kind.IPAddress }}')"
+```
+I have used *echo* to print the command to run, as it good to see the output before
+executing.
+
+
+### Custom Storage classes
+
+#### How to do I create an non-custom storage class?
+
+Define the custom storgage class,
+```
+cat > networkblock-storageclass.yaml  <<_EOD_                            
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "false"
+  name: network-block
+  resourceVersion: "248"
+provisioner: rancher.io/local-path
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
+_EOD_
+```
+
+And create it,
+
+```
+kubectl apply -f networkblock-storageclass.yaml
+```
+
+
