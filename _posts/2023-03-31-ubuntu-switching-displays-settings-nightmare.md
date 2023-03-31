@@ -67,9 +67,9 @@ This will display a list of available scale factors. Choose the one you want
 to use and note its value. Then, use the following command to set the scale factor:
 
 ```
-gsettings set org.gnome.desktop.interface scaling-factor
+gsettings set org.gnome.desktop.interface scaling-factor <value>
 ```
-<value> Replace <value> with the value of the scale factor you want to use.
+Replace <value> with the value of the scale factor you want to use.
 Note that the scale factor value should be an integer, such as 1, 2, or 3.
 
 ### Creating Custom Resolutions
