@@ -15,3 +15,5 @@ git filter-branch --tree-filter 'rm -f myhistory.txt' $(git rev-list --reverse -
 
 ```
 
+[![Go](https://github.com/ennc0d3/discount-server/actions/workflows/go.yml/badge.svg?branch=main)](https://github.com/ennc0d3/discount-server/actions/workflows/go.yml)
+
